@@ -10,9 +10,7 @@ ENV PATH $GEM_HOME/bin:$PATH
 # some of ruby's build scripts are written in ruby
 # we purge this later to make sure our final image uses what we just built
 RUN buildDeps=' \
-    autoconf \
     bison \
-    gcc \
     libbz2-dev \
     libgdbm-dev \
     libglib2.0-dev \
@@ -20,11 +18,13 @@ RUN buildDeps=' \
     libreadline-dev \
     libxml2-dev \
     libxslt-dev \
-    make \
     ruby \
   ' \
   && apt-get update && apt-get upgrade -y \
   && apt-get install -y  --no-install-recommends $buildDeps \
+    autoconf \
+    gcc \
+    make \
     bzip2 \
     ca-certificates \
     curl \
@@ -46,19 +46,7 @@ RUN buildDeps=' \
   && ./configure --disable-install-doc \
   && make -j"$(nproc)" \
   && make install \
-  && apt-get purge -y --auto-remove \
-    autoconf \
-    bison \
-    gcc \
-    libbz2-dev \
-    libgdbm-dev \
-    libglib2.0-dev \
-    libncurses-dev \
-    libreadline-dev \
-    libxml2-dev \
-    libxslt-dev \
-    make \
-    ruby \
+  && apt-get purge -y --auto-remove $buildDeps \
   && echo 'gem: --no-rdoc --no-ri' >> "$HOME/.gemrc" \
   && gem update --system && gem pristine --all && gem install bundler \
   && bundle config --global path "$GEM_HOME" \
