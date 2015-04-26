@@ -7,8 +7,9 @@ RUN (echo "deb http://http.debian.net/debian/ jessie main contrib non-free" > /e
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN  apt-get update && \
-     apt-get upgrade -yq --no-install-recommends && \
-     apt-get install -yq --no-install-recommends \
+     apt-get upgrade -yq --no-install-recommends;
+     
+RUN  apt-get install -yq --no-install-recommends \
        wget \
        build-essential \
        scons \
