@@ -3,7 +3,7 @@ MAINTAINER nathan@radialogica.com
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV RUBY_MAJOR 2.2
-ENV RUBY_VERSION 2.2.1
+ENV RUBY_VERSION 2.2.3
 ENV GEM_HOME /usr/local/bundle
 ENV PATH $GEM_HOME/bin:$PATH
 
