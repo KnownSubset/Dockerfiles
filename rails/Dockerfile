@@ -1,6 +1,6 @@
 FROM quay.io/radialogica/ruby:2.3.0
 
-ENV RAILS_VERSION 4.2.4
+ENV RAILS_VERSION 4.2.6
 
 RUN  apt-get update \
   && apt-get install -y git cron gcc build-essential libsqlite3-dev libmysqlclient-dev --no-install-recommends \
