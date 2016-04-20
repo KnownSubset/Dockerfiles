@@ -1,4 +1,4 @@
-FROM quay.io/radialogica/ruby:2.2.3
+FROM quay.io/radialogica/ruby:2.3.0
 
 ENV RAILS_VERSION 4.2.4
 
